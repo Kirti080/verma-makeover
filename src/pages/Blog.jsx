@@ -1,27 +1,41 @@
-import { useState } from "react";
-
+import React, { useState } from "react";
+ 
 function App() {
-  const [count, setCount] = useState(0);
 
+  const [name, setName] = useState("John");
+ 
+  const users = ["John", "Sarah", "Mike"];
+ 
   return (
-    <div>
-      <h1>My React App</h1>
+<div>
+<h1>Hello {name}</h1>
+ 
+      <input
 
-      <h2>Count: {count}</h2>
+        value={name}
 
-      <button onClick={() => setCount(count + 1)}>
-        Increase
-      </button>
+        onChange={(e) => setName(e.target.value)}
+>
+ 
+      <button onClick={setName("Mike")}>
 
-      <button onClick={() => setCount(count - 1)}>
-        Decrease
-      </button>
+        Change Name
+</button>
+ 
+      <ul>
 
-      <button onClick={() => setCount(0)}>
-        Reset
-      </button>
-    </div>
+        {users.map((user) => {
+<li>{user}</li>
+
+        })}
+</ul>
+ 
+      <p>{user.email.toUpperCase()}</p>
+</div>
+
   );
-}
 
+}
+ 
 export default App;
+ 
