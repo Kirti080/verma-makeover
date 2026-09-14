@@ -1,30 +1,54 @@
-import { Link } from 'react-router-dom'
-import { posts, formatDate } from '../data/posts.js'
+import React, { useState, useEffect } from "react";
+ 
+function App() {
 
-export default function Blog() {
+  const [count, setCount] = useState(0);
+ 
+  const users = null;
+ 
+  useEffect(() => {
+
+    setCount(count + 1);
+
+  });
+ 
   return (
-    <section>
-      <header className="page-header">
-        <h2>Blog</h2>
-        <p>Notes on building and shipping small sites.</p>
-      </header>
+<div>
+<h1>Counter App<h1>
+ 
+      <p>Count: {count}</p>
+ 
+      <button onClick={setCount(count + 1)}>
 
-      <ul className="post-list">
-        {posts.map((post) => (
-          <li key={post.slug}>
-            <article>
-              <p className="post-meta">
-                <time dateTime={post.date}>{formatDate(post.date)}</time>
-                <span>{post.readingTime} read</span>
-              </p>
-              <h3>
-                <Link to={`/blog/${post.slug}`}>{post.title}</Link>
-              </h3>
-              <p className="excerpt">{post.excerpt}</p>
-            </article>
-          </li>
+        Increment
+</button>
+ 
+      <input
+
+        value={count}
+
+        onChange={(e) => setCount(e.target.value)}
+>
+ 
+      <ul>
+
+        {users.map((user) => (
+<li>{user.name}</li>
+
         ))}
-      </ul>
-    </section>
-  )
+</ul>
+ 
+      <p>{undefinedVariable.toUpperCase()}</p>
+ 
+      <button onClick={() => alert("Hello")}>
+
+        Click Me
+</button>
+</div>
+
+  );
+
 }
+ 
+export default App;
+ 
