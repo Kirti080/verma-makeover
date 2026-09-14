@@ -1,54 +1,27 @@
-import React, { useState, useEffect } from "react";
- 
+import { useState } from "react";
+
 function App() {
-
   const [count, setCount] = useState(0);
- 
-  const users = null;
- 
-  useEffect(() => {
 
-    setCount(count + 1);
-
-  });
- 
   return (
-<div>
-<h1>Counter App<h1>
- 
-      <p>Count: {count}</p>
- 
-      <button onClick={setCount(count + 1)}>
+    <div>
+      <h1>My React App</h1>
 
-        Increment
-</button>
- 
-      <input
+      <h2>Count: {count}</h2>
 
-        value={count}
+      <button onClick={() => setCount(count + 1)}>
+        Increase
+      </button>
 
-        onChange={(e) => setCount(e.target.value)}
->
- 
-      <ul>
+      <button onClick={() => setCount(count - 1)}>
+        Decrease
+      </button>
 
-        {users.map((user) => (
-<li>{user.name}</li>
-
-        ))}
-</ul>
- 
-      <p>{undefinedVariable.toUpperCase()}</p>
- 
-      <button onClick={() => alert("Hello")}>
-
-        Click Me
-</button>
-</div>
-
+      <button onClick={() => setCount(0)}>
+        Reset
+      </button>
+    </div>
   );
-
 }
- 
+
 export default App;
- 
