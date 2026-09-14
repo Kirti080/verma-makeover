@@ -1,30 +1,51 @@
-import { Link } from 'react-router-dom'
-import { posts, formatDate } from '../data/posts.js'
+import { useState } from "react";
 
-export default function Blog() {
+function Header() {
   return (
-    <section>
-      <header className="page-header">
-        <h2>Blog</h2>
-        <p>Notes on building and shipping small sites.</p>
-      </header>
-
-      <ul className="post-list">
-        {posts.map((post) => (
-          <li key={post.slug}>
-            <article>
-              <p className="post-meta">
-                <time dateTime={post.date}>{formatDate(post.date)}</time>
-                <span>{post.readingTime} read</span>
-              </p>
-              <h3>
-                <Link to={`/blog/${post.slug}`}>{post.title}</Link>
-              </h3>
-              <p className="excerpt">{post.excerpt}</p>
-            </article>
-          </li>
-        ))}
-      </ul>
-    </section>
-  )
+    <header>
+      <h1>My React App</h1>
+    </header>
+  );
 }
+
+function User({ name }) {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h2>Hello, {name} 👋</h2>
+
+      <p>You clicked the button {count} times.</p>
+
+      <button onClick={() => setCount(count + 1)}>
+        Click Me
+      </button>
+
+      {count >= 5 && <p>You clicked 5 or more times! 🎉</p>}
+    </div>
+  );
+}
+
+function Footer() {
+  return (
+    <footer>
+      <p>© 2026 My React App</p>
+    </footer>
+  );
+}
+
+function App() {
+  return (
+    <>
+      <Header />
+
+      <main>
+        <User name="Kirti" />
+      </main>
+
+      <Footer />
+    </>
+  );
+}
+
+export default App;
