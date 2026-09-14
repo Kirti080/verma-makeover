@@ -1,30 +1,41 @@
-import { Link } from 'react-router-dom'
-import { posts, formatDate } from '../data/posts.js'
+import React, { useState } from "react";
+ 
+function App() {
 
-export default function Blog() {
+  const [name, setName] = useState("John");
+ 
+  const users = ["John", "Sarah", "Mike"];
+ 
   return (
-    <section>
-      <header className="page-header">
-        <h2>Blog</h2>
-        <p>Notes on building and shipping small sites.</p>
-      </header>
+<div>
+<h1>Hello {name}</h1>
+ 
+      <input
 
-      <ul className="post-list">
-        {posts.map((post) => (
-          <li key={post.slug}>
-            <article>
-              <p className="post-meta">
-                <time dateTime={post.date}>{formatDate(post.date)}</time>
-                <span>{post.readingTime} read</span>
-              </p>
-              <h3>
-                <Link to={`/blog/${post.slug}`}>{post.title}</Link>
-              </h3>
-              <p className="excerpt">{post.excerpt}</p>
-            </article>
-          </li>
-        ))}
-      </ul>
-    </section>
-  )
+        value={name}
+
+        onChange={(e) => setName(e.target.value)}
+>
+ 
+      <button onClick={setName("Mike")}>
+
+        Change Name
+</button>
+ 
+      <ul>
+
+        {users.map((user) => {
+<li>{user}</li>
+
+        })}
+</ul>
+ 
+      <p>{user.email.toUpperCase()}</p>
+</div>
+
+  );
+
 }
+ 
+export default App;
+ 
